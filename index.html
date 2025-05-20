@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo to PDF Converter</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Photo to PDF Converter</h1>
+            <p class="description">Upload multiple photos, customize layout, and convert them to a downloadable PDF.</p>
+        </header>
+        
+        <div class="app-container">
+            <div class="upload-section">
+                <div id="upload-area" class="upload-area">
+                    <i>📁</i>
+                    <h3>Drop your photos here</h3>
+                    <p>or click to browse files</p>
+                </div>
+                <input type="file" id="file-input" accept="image/*" multiple>
+            </div>
+            
+            <div class="settings-section">
+                <div class="form-group">
+                    <label for="photos-per-page">Photos per page:</label>
+                    <div class="range-container">
+                        <input type="range" id="photos-per-page" min="1" max="15" value="4">
+                        <span id="photos-per-page-value" class="range-value">4</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="preview-section">
+                <div class="preview-title">
+                    <h3>Preview</h3>
+                    <button id="clear-all" class="btn btn-secondary" style="display: none;">Clear All</button>
+                </div>
+                <div id="preview-container">
+                    <div class="empty-state" id="empty-state">
+                        <p>No photos uploaded yet. Upload some photos to see the preview.</p>
+                    </div>
+                    <div id="preview-grid" class="preview-grid"></div>
+                </div>
+            </div>
+            
+            <div class="actions-section">
+                <button id="generate-btn" class="btn btn-primary" disabled>Generate PDF</button>
+                <button id="download-btn" class="btn btn-success" style="display: none;">Download PDF</button>
+            </div>
+            
+            <div id="status-message" class="status-message hidden"></div>
+            <div id="loader" class="loader hidden"></div>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
